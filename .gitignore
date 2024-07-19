@@ -1,0 +1,55 @@
+# Node.js dependencies
+node_modules/
+
+# Compiled output
+dist/
+build/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+.env.test
+
+# TypeORM
+*.sql
+*.sqlite
+*.db
+*.db-journal
+typeorm-cli-config.json
+
+# Yarn
+.yarn/
+.yarn-cache/
+.yarn-integrity
+
+# Editor/IDE settings
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Coverages
+coverage/
+.nyc_output/
+
+# Parcel
+.cache/
+
+# Miscellaneous
+*.tgz
+*.lock
