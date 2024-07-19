@@ -1,5 +1,6 @@
 import { getRepository, In } from 'typeorm';
 import { User } from '../entities/User';
+import { publishToQueue } from '../rabbitmq/publisher';
 
 export const userResolver = {
     users: async () => {
@@ -20,6 +21,8 @@ export const userResolver = {
     addUser: async ({ name, email }: { name: string; email: string }) => {
         const userRepository = getRepository(User);
         const user = userRepository.create({ name, email });
-        return await userRepository.save(user);
+        const savedUser = await userRepository.save(user);
+        await publishToQueue('userQueue', { id: savedUser.id, name: savedUser.name, email: savedUser.email });
+        return savedUser;
     },
 };
