@@ -10,14 +10,14 @@ pipeline {
 
     stage('Install Dependencies') {
       steps {
-        sh 'node -v'
-        sh 'npm install'
+        bat 'node -v'
+        bat 'npm install'
       }
     }
 
     stage('Test') {
       steps {
-        sh 'npm test || echo "Tests failed but continuing..."'
+        bat 'npm test || echo "Tests failed but continuing..."'
       }
     }
   }
